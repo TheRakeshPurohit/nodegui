@@ -29,6 +29,9 @@ jobs:
         with:
           node-version: '24.x'
 
+      - name: Update apt
+        if: contains(matrix.platform, 'linux')
+        run: sudo apt update
       - name: Install ubuntu deps
         if: contains(matrix.platform, 'linux')
         run: sudo apt install mesa-common-dev libglu1-mesa-dev libegl1 libopengl-dev
