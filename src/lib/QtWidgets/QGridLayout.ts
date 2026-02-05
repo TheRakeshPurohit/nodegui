@@ -2,7 +2,6 @@ import addon from '../utils/addon';
 import { QWidget, QWidgetSignals } from './QWidget';
 import { QLayout, QLayoutSignals } from './QLayout';
 import { NativeElement } from '../core/Component';
-import { AlignmentFlag } from '../QtEnums';
 import { wrapperCache } from '../core/WrapperCache';
 import { checkIfNativeElement } from '../utils/helpers';
 
@@ -50,12 +49,12 @@ export class QGridLayout extends QLayout<QGridLayoutSignals> {
         column: number,
         rowSpan = 1,
         columnSpan = 1,
-        alignment: AlignmentFlag = 0,
+        alignment = 0 /* AlignmentFlag */,
     ): void {
         this.native.addLayout(layout.native, row, column, rowSpan, columnSpan, alignment);
     }
 
-    addWidget(widget: QWidget, row = 0, col = 0, rowSpan = 1, colSpan = 1, alignment: AlignmentFlag = 0): void {
+    addWidget(widget: QWidget, row = 0, col = 0, rowSpan = 1, colSpan = 1, alignment = 0 /* AlignmentFlag */): void {
         this.native.addWidget(widget.native, row, col, rowSpan, colSpan, alignment);
     }
     removeWidget(widget: QWidget): void {
