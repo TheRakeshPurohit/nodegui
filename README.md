@@ -41,7 +41,7 @@ https://github.com/nodegui/examples
 -   🧬 **Cross platform.** Works on major Linux flavours and Windows. Help is requested to bring it to ARM based MacOS. See [issue 1024](https://github.com/nodegui/nodegui/issues/1024)
 -   📉 **Low CPU and memory** footprint. Current CPU stays at 0% on idle and memory usage is under 20MB for a Hello World program.
 -   💅 **Styling with CSS** (includes actual cascading). Also has full support for Flexbox layout (thanks to Yoga).
--   ✅ **Complete Nodejs API support** (Currently runs on Node v16.x - and is easily upgradable). Hence has access to all Nodejs compatible NPM modules.
+-   ✅ **Complete Nodejs API support** (Currently runs on Node v24). Hence has access to all Nodejs compatible NPM modules.
 -   🎪 **Native widget event listener support.** Supports all events available from Qt / NodeJs.
 -   💸 **Can be used for Commercial applications.**
 -   🕵️‍♂️ **Good Devtools support.**
