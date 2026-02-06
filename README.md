@@ -164,45 +164,6 @@ npm run build
 The last step will takes some time to run as it builds the C++ binaries at the core of NodeGui.
 
 
-### Using your own custom Qt installation (Optional)
-
-**Compiling Qt from source**
-
-You will need to download and install Qt from source since there are no binaries from Qt for M1 yet.
-
-(https://www.reddit.com/r/QtFramework/comments/ll58wg/how_to_build_qt_creator_for_macos_arm64_a_guide/)
-
-```
-git clone git://code.qt.io/qt/qt5.git qt6
-cd qt6
-git checkout 6.6
-
-./init-repository --module-subset=essential -f
-git submodule init qtsvg
-git submodule update qtsvg
-
-cd ..
-mkdir qt6-6.6-macOS-release
-cd qt6-6.6-macOS-release
-
-../qt6/configure -release QMAKE_APPLE_DEVICE_ARCHS=arm64 -opensource -confirm-license -nomake examples -nomake tests -skip qt3d -skip webengine -skip qtactiveqt -skip qtcanvas3d  -skip qtdeclarative -skip qtdatavis3d -skip qtdoc -skip qtgamepad -skip qtcharts -skip qtgraphicaleffects -skip qtlocation  -skip qtpurchasing -skip qtquickcontrols -skip qtquickcontrols2 -skip qtremoteobjects -skip qtscxml -skip qtsensors -skip qtserialbus -skip qtserialport -skip qtspeech -skip qtvirtualkeyboard -skip qtscript
-
-make -j15
-
-make install
-```
-
-This should install Qt into something like this `/usr/local/Qt-6.6.0` (your directory can change. This will be displayed when running make)
-
-**Pointing nodegui to use your custom Qt installation**
-
-Now just set `export QT_INSTALL_DIR=<your qt path>` . In the above example it would look something like this `export QT_INSTALL_DIR=/usr/local/Qt-6.6.0`. Add this in your .zshrc or .bashrc so that you dont need to repeat this process again.
-
-Now just `rm -rf node_modules` and do `npm install` again.
-
-The logs should say something like `CustomQt detected at <your qt path>. Hence, skipping Mini Qt installation`.
-
-
 ### Running example programs
 
 A number of small programs to show different parts of the Qt API are in `src/examples`. They can be run directly with:
